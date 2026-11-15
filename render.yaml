@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: queuemind
+    runtime: python
+    plan: free
+    branch: codex/docs-cross-platform-quickstart
+    buildCommand: pip install -r requirements.txt
+    startCommand: streamlit run app.py --server.address 0.0.0.0 --server.port $PORT --server.headless true --browser.gatherUsageStats false
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.13.5
